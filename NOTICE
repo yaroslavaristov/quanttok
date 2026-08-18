@@ -1,0 +1,25 @@
+quanttok
+Copyright 2026-present Rimefire.
+
+This product includes software developed at Rimefire Systems
+(https://github.com/yaroslavaristov/quanttok).
+
+--------------------------------------------------------------------------
+This project depends on the following third-party components at build or
+test time. They are not distributed as part of quanttok's own Source form;
+they are fetched separately (e.g. via CMake FetchContent or pip) and remain
+under their own licenses, listed here for attribution as required by
+Section 4(d) of the Apache License, Version 2.0. Consult each project's own
+repository for the authoritative, up-to-date license text.
+
+  * Google Benchmark        — Apache License 2.0
+  * GoogleTest               — BSD 3-Clause License
+  * pybind11                 — BSD-style License
+  * tiktoken (comparison only, not bundled) — MIT License
+  * HF tokenizers (comparison only, not bundled) — Apache License 2.0
+
+--------------------------------------------------------------------------
+NOTE: This NOTICE file is maintained by hand and may lag actual
+dependencies. If you add, remove, or replace a build/test dependency,
+update this file in the same pull request — see CONTRIBUTING.md.
+
