@@ -1,0 +1,22 @@
+# NOTE: this is the placeholder that bindings/python/pyproject.toml will
+# eventually be — full pybind11/scikit-build-core config isn't written yet,
+# this file exists so the root pyproject.toml has something real to point
+# at once the actual extension module build is implemented.
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "quanttok"
+version = "0.1.0.dev0"
+description = "Zero-alloc, SIMD-accelerated, compile-time-optimized BPE tokenizer. Faster than tiktoken, built for light speed tokenizing."
+readme = "../../README.md"
+requires-python = ">=3.10"
+license = { file = "../../LICENSE" }
+authors = [{ name = "Yaroslav Aristov" }]
+
+[project.urls]
+Homepage = "https://github.com/yaroslavaristov/quanttok"
+Repository = "https://github.com/yaroslavaristov/quanttok"
+Issues = "https://github.com/yaroslavaristov/quanttok/issues"
+
