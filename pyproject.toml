@@ -1,0 +1,48 @@
+# Root pyproject.toml — dev convenience only.
+#
+# This is NOT a second published package. The real, publishable package
+# manifest is bindings/python/pyproject.toml — that's what `python -m build`
+# uses to produce the wheel/sdist that ships to PyPI.
+#
+# This file exists so a contributor who just cloned the repo can run
+#   pip install -e .
+# from the repo root without first discovering that the actual package
+# lives one level down in bindings/python/. It's a thin pointer, not a
+# parallel build configuration — see CONTRIBUTING.md.
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "quanttok"
+version = "0.1.0.dev0"
+description = "Zero-alloc, SIMD-accelerated, compile-time-optimized BPE tokenizer. Faster than tiktoken, built for light speed tokenizing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Yaroslav Aristov" }]
+
+[project.urls]
+Homepage = "https://github.com/yaroslavaristov/quanttok"
+Repository = "https://github.com/yaroslavaristov/quanttok"
+Issues = "https://github.com/yaroslavaristov/quanttok/issues"
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pre-commit"]
+
+# --- scikit-build-core: point the build at the real package location ---
+[tool.scikit-build]
+wheel.packages = ["bindings/python/quanttok"]
+cmake.source-dir = "bindings/python"
+
+# --- shared dev tooling config, so `ruff`/`pytest` behave the same
+#     regardless of which directory you invoke them from ---
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["bindings/python/tests"]
